@@ -50,7 +50,7 @@ describe("Ajv", () => {
     })
 
     it("should throw if compiled schema has an invalid JavaScript code", () => {
-      const _ajv = new _Ajv({logger: true})
+      const _ajv = new _Ajv({logger: Logger})
       _ajv.addKeyword({keyword: "even", code: badEvenCode})
       let schema = {even: true}
       const validate: any = _ajv.compile(schema)
