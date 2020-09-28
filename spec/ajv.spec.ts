@@ -54,8 +54,8 @@ describe("Ajv", () => {
       _ajv.addKeyword({keyword: "even", code: badEvenCode})
       let schema = {even: true}
       const validate: any = _ajv.compile(schema)
-      //validate(2).should.equal(true)
-      validate(3).should.equal(false)
+      validate(2).should.equal(true)
+      //validate(3).should.equal(false)
 
       schema = {even: false}
       should.throw(() => {
