@@ -55,15 +55,16 @@ describe("Ajv", () => {
       let schema = {even: true}
       const validate: any = _ajv.compile(schema)
       validate(2).should.equal(true)
-      //validate(3).should.equal(false)
+      validate(3).should.equal(false)
 
-      schema = {even: false}
-      should.throw(() => {
-        _ajv.compile(schema)
-      }, /Unexpected token/)
+      //schema = {even: false}
+      //should.throw(() => {
+     //   _ajv.compile(schema)
+     // }, /Unexpected token/)
 
       function badEvenCode(cxt) {
         const op = cxt.schema ? _`===` : _`!===` // invalid on purpose
+        console.log("op==============",op)
         cxt.pass(_`${cxt.data} % 2 ${op} 0`)
       }
     })
