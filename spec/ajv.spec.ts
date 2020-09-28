@@ -60,7 +60,7 @@ describe("Ajv", () => {
       schema = {even: false}
       should.throw(() => {
         _ajv.compile(schema)
-      }, /'Unexpected token ='/)
+      }, /Unexpected token =/)
 
       function badEvenCode(cxt) {
         const op = cxt.schema ? _`===` : _`!===` // invalid on purpose
